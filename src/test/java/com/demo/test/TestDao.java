@@ -111,7 +111,11 @@ public class TestDao {
 	@Test
 	public void testUpdateEmployee() throws SqlException {
 		Employee emp = new Employee();
-		emp = dao.findEmployee(2);
+		emp = null;
+		int id =1;
+		while(emp == null){
+		emp=dao.findEmployee(id++);
+		}
 		emp.setDesignation("off duty");
 		emp.setSalary(0f);
 		assertTrue(dao.updateEmployee(emp));
